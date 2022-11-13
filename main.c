@@ -4,9 +4,10 @@
 #include "./functions/functions.h"
 #include "./scenarios/scenarios.h"
 
-int main(){
+int main()
+{
 
-    Library * library = NULL;
+    Library *library = NULL;
 
     startGame(library);
 

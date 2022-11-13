@@ -4,9 +4,10 @@
 #include "../functions/functions.h"
 #include "scenarios.h"
 
-//Lancer le jeu
-void startGame(Library * library){
-	
+// Lancer le jeu
+void startGame(Library *library)
+{
+
 	system("clear");
 	puts("\n");
 	printf("***************************\n");
@@ -21,13 +22,16 @@ void startGame(Library * library){
 	printf(COLOR_GREEN "1 " COLOR_RESET "- Lancer la partie\n");
 	printf(COLOR_GREEN "2 " COLOR_RESET "- Quitter");
 	puts("\n");
-	
+
 	int option;
-	do{
-		if(scanf("%d", &option) != 1){
-			while(fgetc(stdin) != '\n');
+	do
+	{
+		if (scanf("%d", &option) != 1)
+		{
+			while (fgetc(stdin) != '\n')
+				;
 		};
-	}while(option != 1 && option != 2);
+	} while (option != 1 && option != 2);
 
 	switch (option)
 	{
@@ -45,20 +49,24 @@ void startGame(Library * library){
 	}
 }
 
-void menu(Library * library){
+void menu(Library *library)
+{
 
 	system("clear");
 	puts("\n");
-	printf(COLOR_GREEN "1 " COLOR_RESET "- Rentrer dans la librairie\n\n"); //Montre tous les livres et les autres options.
+	printf(COLOR_GREEN "1 " COLOR_RESET "- Rentrer dans la librairie\n\n"); // Montre tous les livres et les autres options.
 	printf(COLOR_GREEN "2 " COLOR_RESET "- Retourner au démarrage");
-	puts("\n");	
+	puts("\n");
 
 	int option;
-	do{
-		if(scanf("%d", &option) != 1){
-			while(fgetc(stdin) != '\n');
+	do
+	{
+		if (scanf("%d", &option) != 1)
+		{
+			while (fgetc(stdin) != '\n')
+				;
 		};
-	}while(option < 1 || option > 6);
+	} while (option < 1 || option > 6);
 
 	switch (option)
 	{
@@ -73,50 +81,57 @@ void menu(Library * library){
 	}
 }
 
-void enterLibrary(Library * library){
+void enterLibrary(Library *library)
+{
 	system("clear");
 	puts("\n");
-	if(library == NULL || library->nb_book == 0){
+	if (library == NULL || library->nb_book == 0)
+	{
 		printf("Il n\'y a pas de livre dans la librairie..");
 		puts("\n");
-	}else{
-		showLibrary(library, 0);	
+	}
+	else
+	{
+		showLibrary(library, 0);
 	}
 	puts(" ");
-	printf(COLOR_GREEN "1" COLOR_RESET " - Ajouter un livre\n\n"); //Initialisation d'un livre.
-	printf(COLOR_GREEN "2" COLOR_RESET " - Examiner un livre\n\n"); //De nouvelles options s'ouvriront après ce choix : ajouter un mot / le supprimer.
-	printf(COLOR_GREEN "3" COLOR_RESET " - Parler à un livre\n\n"); //Lance une session qui censure tous les mots que l'on dit qui sont présents dans le livre.
+	printf(COLOR_GREEN "1" COLOR_RESET " - Ajouter un livre\n\n");	// Initialisation d'un livre.
+	printf(COLOR_GREEN "2" COLOR_RESET " - Examiner un livre\n\n"); // De nouvelles options s'ouvriront après ce choix : ajouter un mot / le supprimer.
+	printf(COLOR_GREEN "3" COLOR_RESET " - Parler à un livre\n\n"); // Lance une session qui censure tous les mots que l'on dit qui sont présents dans le livre.
 	printf(COLOR_GREEN "0" COLOR_RESET " - Retourner au menu");
 	puts("\n");
 
 	int option;
 
-	do{
-		if(scanf("%d", &option) != 1){
-			while(fgetc(stdin) != '\n');
+	do
+	{
+		if (scanf("%d", &option) != 1)
+		{
+			while (fgetc(stdin) != '\n')
+				;
 		};
-	}while(option < 0 && option > 3) ;
+	} while (option < 0 && option > 3);
 	switch (option)
 	{
-		case 1:
-			addBookMenu(library);
-			break;
-		case 2:
-			checkBook(library);
-			break;
-		case 3:
-			talkBook(library);
-			break;
-		case 0:
-			menu(library);
-			break;
-		default:
-			break;
+	case 1:
+		addBookMenu(library);
+		break;
+	case 2:
+		checkBook(library);
+		break;
+	case 3:
+		talkBook(library);
+		break;
+	case 0:
+		menu(library);
+		break;
+	default:
+		break;
 	}
 }
 
-
-void addBookMenu(Library * library){
+void addBookMenu(Library *library)
+{
 
 	system("clear");
 	puts("\n");
@@ -126,11 +141,14 @@ void addBookMenu(Library * library){
 	puts("\n");
 
 	char option;
-	do{
-		if(scanf("%c", &option) != 1){
-			while(fgetc(stdin) != '\n');
+	do
+	{
+		if (scanf("%c", &option) != 1)
+		{
+			while (fgetc(stdin) != '\n')
+				;
 		};
-	}while(option != 'o' && option != 'n');
+	} while (option != 'o' && option != 'n');
 
 	switch (option)
 	{
@@ -145,40 +163,48 @@ void addBookMenu(Library * library){
 	}
 };
 
-void checkBook(Library * library){ //Examiner un livre
-	
+void checkBook(Library *library)
+{ // Examiner un livre
+
 	system("clear");
 	puts("\n");
-	if(library == NULL || library->nb_book == 0){
+	if (library == NULL || library->nb_book == 0)
+	{
 		printf("Il n\'y a pas de livre dans la librairie..");
 		puts("\n");
 		returnLibrary(library);
-	}else{
-		
+	}
+	else
+	{
+
 		showLibrary(library, 0);
 
 		int option;
 
 		printf("Choisissez un livre : ");
-		do{
-		if(scanf("%d", &option) != 1){
-			while(fgetc(stdin) != '\n');
-		};
-		}while(option < 0 || option > library->nb_book - 1);
+		do
+		{
+			if (scanf("%d", &option) != 1)
+			{
+				while (fgetc(stdin) != '\n')
+					;
+			};
+		} while (option < 0 || option > library->nb_book - 1);
 
 		int bookNumber = option;
 
-		Book * temp = library->first_book;
+		Book *temp = library->first_book;
 
-		while(option != 0){
+		while (option != 0)
+		{
 			temp = temp->next_book;
 			option--;
 		}
 
 		system("clear");
-		puts("\n");		
+		puts("\n");
 		showBook(temp, 1);
-		puts("\n");		
+		puts("\n");
 
 		printf(COLOR_GREEN "0" COLOR_RESET " - Ajouter un ou plusieurs mots\n\n");
 		printf(COLOR_GREEN "1" COLOR_RESET " - Supprimer un ou plusieurs mots\n\n");
@@ -188,27 +214,33 @@ void checkBook(Library * library){ //Examiner un livre
 
 		option = -1;
 
-		do{
-		if(scanf("%d", &option) != 1){
-			while(fgetc(stdin) != '\n');
-		};
-		}while(option < 0 || option > 3);
+		do
+		{
+			if (scanf("%d", &option) != 1)
+			{
+				while (fgetc(stdin) != '\n')
+					;
+			};
+		} while (option < 0 || option > 3);
 
 		switch (option)
 		{
 		case 0:
-		system("clear");
-		puts("\n");
-		showBook(temp, 0);
+			system("clear");
+			puts("\n");
+			showBook(temp, 0);
 			modifyBook(temp, library);
 			break;
 		case 1:
 			system("clear");
 			puts("\n");
-			if(temp->nb_word == 0){
+			if (temp->nb_word == 0)
+			{
 				printf("Le livre ne contient pas de mot.");
 				puts("\n");
-			}else{
+			}
+			else
+			{
 				deleteWordMenu(temp, library);
 			}
 			break;
@@ -224,39 +256,47 @@ void checkBook(Library * library){ //Examiner un livre
 
 		returnLibrary(library);
 	}
-
 };
 
-void talkBook(Library * library){
-	
+void talkBook(Library *library)
+{
+
 	system("clear");
 	puts("\n");
-	if(library == NULL || library->nb_book == 0){
+	if (library == NULL || library->nb_book == 0)
+	{
 		printf("Il n\'y a pas de livre dans la librairie..");
 		puts("\n");
 		returnLibrary(library);
-	}else{
+	}
+	else
+	{
 		showLibrary(library, 0);
 		printf("Avec quel livre souhaitez-vous échanger ?");
 		puts("\n");
 
 		int option;
 
-		do{
-		if(scanf("%d", &option) != 1){
-			while(fgetc(stdin) != '\n');
-		};
-		}while(option < 0 || option > library->nb_book - 1);
-	
-		Book * temp = library->first_book;
+		do
+		{
+			if (scanf("%d", &option) != 1)
+			{
+				while (fgetc(stdin) != '\n')
+					;
+			};
+		} while (option < 0 || option > library->nb_book - 1);
 
-		while(option != 0){
+		Book *temp = library->first_book;
+
+		while (option != 0)
+		{
 			temp = temp->next_book;
 			option--;
 		}
 
 		system("clear");
-		if(temp->first_word == NULL){
+		if (temp->first_word == NULL)
+		{
 			puts("\n");
 			printf("Le livre est vide.");
 			puts("\n");
@@ -271,7 +311,8 @@ void talkBook(Library * library){
 		int stay = 1;
 		char sentence[MAX_SENTENCE];
 		fgets(sentence, 2, stdin);
-		while(stay){
+		while (stay)
+		{
 			printf("Vous  : ");
 			stay = repeatSentence(temp, fgets(sentence, MAX_SENTENCE, stdin));
 		}
@@ -279,29 +320,37 @@ void talkBook(Library * library){
 	}
 }
 
-int repeatSentence(Book * book, char * sentence){
-	
-	if(book == NULL){
+int repeatSentence(Book *book, char *sentence)
+{
+
+	if (book == NULL)
+	{
 		exit(EXIT_FAILURE);
 	}
 
 	int count = 0;
-	while(sentence[count] != '\n'){
+	while (sentence[count] != '\n')
+	{
 		count++;
-	}			
+	}
 	sentence[count] = '\0';
 
-	if(!strcmp(sentence, "Salomon")){
+	if (!strcmp(sentence, "Salomon"))
+	{
 		return 0;
-	}else{
+	}
+	else
+	{
 
 		int start_position = 0;
 		int end_position = 0;
 
 		printf(COLOR_GREEN "Livre" COLOR_RESET ": ");
-		while(sentence[end_position] != '\0'){
+		while (sentence[end_position] != '\0')
+		{
 			end_position++;
-			if(sentence[end_position] == 32){
+			if (sentence[end_position] == 32)
+			{
 				printWord(book, sentence, start_position, end_position);
 				start_position = end_position + 1;
 			}
@@ -312,46 +361,60 @@ int repeatSentence(Book * book, char * sentence){
 	}
 }
 
-void printWord(Book * book, char * sentence, int start_position, int end_position){
-	
-	char * mySentence = malloc(sizeof(char) * (end_position - start_position + 1));
+void printWord(Book *book, char *sentence, int start_position, int end_position)
+{
+
+	char *mySentence = malloc(sizeof(char) * (end_position - start_position + 1));
 	int scale = 0;
 
-	for(int i = start_position ; i < end_position ; i++){
+	for (int i = start_position; i < end_position; i++)
+	{
 		mySentence[scale] = sentence[i];
 		scale++;
 	}
 
 	int isPresent = 0;
 
-	Word * temp = book->first_word;
-	
-	if(book->nb_word > 1){
-		for(int i = 0 ; i < book->nb_word; i++){
-		if(!strcmp(mySentence, temp->value)){
-			isPresent = 1;
+	Word *temp = book->first_word;
+
+	if (book->nb_word > 1)
+	{
+		for (int i = 0; i < book->nb_word; i++)
+		{
+			if (!strcmp(mySentence, temp->value))
+			{
+				isPresent = 1;
+			}
+			temp = temp->next_word;
 		}
-		temp = temp->next_word;
-		}
-	}else{
-		if(!strcmp(mySentence, temp->value)){
-			isPresent = 1;
-		}	
 	}
-	
-	if(isPresent){
-		for(int nb_letters = 0 ; nb_letters < strlen(mySentence) ; nb_letters++){
+	else
+	{
+		if (!strcmp(mySentence, temp->value))
+		{
+			isPresent = 1;
+		}
+	}
+
+	if (isPresent)
+	{
+		for (int nb_letters = 0; nb_letters < strlen(mySentence); nb_letters++)
+		{
 			printf(COLOR_RED "*");
 		}
 		printf(COLOR_RESET);
-	}else{
+	}
+	else
+	{
 		printf("%s", mySentence);
-	}printf(" ");
+	}
+	printf(" ");
 
 	free(mySentence);
 }
 
-void deleteBookMenu(int bookNumber, Book * book, Library * library){
+void deleteBookMenu(int bookNumber, Book *book, Library *library)
+{
 	system("clear");
 	puts("\n");
 	printf("Êtes-vous sûr de vouloir supprimer le livre ?");
@@ -360,11 +423,14 @@ void deleteBookMenu(int bookNumber, Book * book, Library * library){
 	puts("\n");
 
 	char option;
-	do{
-		if(scanf("%c", &option) != 1){
-			while(fgetc(stdin) != '\n');
+	do
+	{
+		if (scanf("%c", &option) != 1)
+		{
+			while (fgetc(stdin) != '\n')
+				;
 		};
-	}while(option != 'o' && option != 'n');
+	} while (option != 'o' && option != 'n');
 
 	switch (option)
 	{
@@ -383,7 +449,8 @@ void deleteBookMenu(int bookNumber, Book * book, Library * library){
 	}
 }
 
-void deleteWordMenu(Book * book, Library * library){
+void deleteWordMenu(Book *book, Library *library)
+{
 	showBook(book, 1);
 	puts("\n");
 	printf("Quel(s) mot(s) voulez-vous effacer du livre ?");
@@ -394,10 +461,11 @@ void deleteWordMenu(Book * book, Library * library){
 	fgets(newWord, sizeof(newWord), stdin);
 
 	int count = 0;
-	
-	while(newWord[count] != '\n'){
+
+	while (newWord[count] != '\n')
+	{
 		count++;
-	}			
+	}
 	newWord[count] = '\0';
 
 	int old_nb_word = book->nb_word;
@@ -406,9 +474,12 @@ void deleteWordMenu(Book * book, Library * library){
 
 	system("clear");
 	puts("\n");
-	if(old_nb_word - book->nb_word > 1){
+	if (old_nb_word - book->nb_word > 1)
+	{
 		printf("Les mots ont été effacés du livre !");
-	}else{
+	}
+	else
+	{
 		printf("Le mot a été effacé du livre !");
 	}
 	puts("\n");
