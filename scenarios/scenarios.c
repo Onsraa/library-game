@@ -407,9 +407,9 @@ void deleteWordMenu(Book * book, Library * library){
 	system("clear");
 	puts("\n");
 	if(old_nb_word - book->nb_word > 1){
-		printf("Les mots ont été effacés au livre !");
+		printf("Les mots ont été effacés du livre !");
 	}else{
-		printf("Le mot a été effacé au livre !");
+		printf("Le mot a été effacé du livre !");
 	}
 	puts("\n");
 	returnLibrary(library);
