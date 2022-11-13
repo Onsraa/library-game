@@ -49,7 +49,7 @@ void menu(Library * library){
 
 	system("clear");
 	puts("\n");
-	printf(COLOR_GREEN "1 " COLOR_RESET "- Rentrer dans la librairie\n\n"); //Montre tous les dictionnaires et les autres options : fusionner les livres entre-eux / les faire combattre
+	printf(COLOR_GREEN "1 " COLOR_RESET "- Rentrer dans la librairie\n\n"); //Montre tous les livres et les autres options.
 	printf(COLOR_GREEN "2 " COLOR_RESET "- Retourner au démarrage");
 	puts("\n");	
 
@@ -83,8 +83,8 @@ void enterLibrary(Library * library){
 		showLibrary(library, 0);	
 	}
 	puts(" ");
-	printf(COLOR_GREEN "1" COLOR_RESET " - Ajouter un livre\n\n"); //Initialisation d'un livre
-	printf(COLOR_GREEN "2" COLOR_RESET " - Examiner un livre\n\n"); //De nouvelles options s'ouvriront après ce choix : ajouter un mot / le supprimer
+	printf(COLOR_GREEN "1" COLOR_RESET " - Ajouter un livre\n\n"); //Initialisation d'un livre.
+	printf(COLOR_GREEN "2" COLOR_RESET " - Examiner un livre\n\n"); //De nouvelles options s'ouvriront après ce choix : ajouter un mot / le supprimer.
 	printf(COLOR_GREEN "3" COLOR_RESET " - Parler à un livre\n\n"); //Lance une session qui censure tous les mots que l'on dit qui sont présents dans le livre.
 	printf(COLOR_GREEN "0" COLOR_RESET " - Retourner au menu");
 	puts("\n");
