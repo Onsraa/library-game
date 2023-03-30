@@ -1,3 +1,5 @@
+#Quick presentation of me and the project.
+
 Hi ! I'm Teddy, a junior developper, who's currently studying in the great school ESGI.
 
 The C language is one of my favorite because you must be carefull about every commas and syntaxes written in your code, so it forces you to be very rigorous.
@@ -18,3 +20,7 @@ But I'll do linked list.
 
 Enjoy my code.
 You're free to use it as much as you want.
+
+Things to do : 
+- Clean the code
+- Correct all segmentation fault caused by a pattern of action.
