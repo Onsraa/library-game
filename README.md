@@ -1,4 +1,4 @@
-#Quick presentation of me and the project.
+# Quick presentation of me and the project.
 
 Hi ! I'm Teddy, a junior developper, who's currently studying in the great school ESGI.
 
